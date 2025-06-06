@@ -50,6 +50,14 @@
     useXkbConfig = true;
   };
 
+  # Hardware
+  hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+  };
+
   # X11 and desktop environment
   services = {
     xserver = {
@@ -60,7 +68,12 @@
       };
     };
 
-    desktopManager.plasma6.enable = true;
+    desktopManager = {
+      plasma6 = {
+        enable = true;
+      };
+    };
+
     displayManager = {
       sddm = {
         enable = true;
@@ -82,6 +95,38 @@
       };
       pulse.enable = true;
     };
+
+    ollama.enable = false;
+
+    power-profiles-daemon.enable = false;
+    tlp = {
+      enable = true;
+      settings = {
+        START_CHARGE_THRESH_BAT0 = 85;
+        STOP_CHARGE_THRESH_BAT0 = 85;
+
+        CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+        USB_AUTOSUSPEND = 1;
+
+        RUNTIME_PM_ON_AC = "auto";
+        RUNTIME_PM_ON_BAT = "auto";
+      };
+    };
+
+    mysql = {
+      enable = true;
+      package = pkgs.mariadb;
+    };
+
+    postgresql = {
+      enable = true;
+    };
+
+    atuin = {
+      enable = true;
+    };
   };
 
   # User configuration
@@ -96,55 +141,67 @@
   };
 
   # System packages
-  environment.systemPackages = with pkgs; [
-    firefox
-    vim
-    neovim
-    curl
-    wget
-    git
-    kitty
-    nekoray
-    telegram-desktop
-    onefetch
-    htop
-    neovim
-    vscode
-    vlc
-    mpv
-    go
-    php
-    docker
-    docker-compose
-    fastfetch
-    tree
-    rustup
-    postamn
-    gcc
-    libgcc
-    home-manager
-    dbeaver-bin
-    zig
-    gnumake
-    gtk4
-    speedcrunch
-    python313
-    nodejs_24
-    bun
-    ffmpeg
-    tmux
-    podman
-    youtube-dl
-    scdl
-    postgresql
-    mariadb
-    redis
-    redisinsight
-    rabbitmq-server
-    nginx
-    atuin
-    ollama
-  ];
+  nixpkgs.config.allowUnfree = true;
+
+  environment = {
+    plasma6 = {
+      excludePackages = [
+        pkgs.kdePackages.elisa
+        pkgs.kdePackages.khelpcenter
+      ];
+    };
+
+    systemPackages = with pkgs; [
+      firefox
+      vim
+      neovim
+      curl
+      wget
+      git
+      nekoray
+      telegram-desktop
+      onefetch
+      htop
+      neovim
+      vscode
+      vlc
+      mpv
+      go
+      php
+      docker
+      docker-compose
+      fastfetch
+      tree
+      rustup
+      postman
+      gcc
+      libgcc
+      home-manager
+      dbeaver-bin
+      zig
+      gnumake
+      gtk4
+      speedcrunch
+      python313
+      nodejs_24
+      bun
+      ffmpeg
+      tmux
+      podman
+      yt-dlp
+      scdl
+      postgresql
+      mariadb
+      redis
+      redisinsight
+      rabbitmq-server
+      nginx
+      atuin
+      ollama
+      aria2
+      kdePackages.kdeconnect-kde
+    ];
+  };
 
   # Programs
   programs = {
@@ -163,8 +220,22 @@
 
       ohMyZsh = {
         enable = true;
-        plugins = [ "git" "sudo" "docker" "vi-mode" "laravel" ];
-        theme = "agnoster";
+        plugins = [ "git" "sudo" "docker" "vi-mode" "laravel" "golang" ];
+        theme = "af";
+        custom = "$HOME/.oh-my-zsh";
+      };
+    };
+
+    git = {
+      enable = true;
+      config = {
+        init = {
+          defaultBranch = "main";
+        };
+        user = {
+          name = "Amirhossein Fazli";
+          email = "amirhossein95b@gmail.com";
+        };
       };
     };
   };
@@ -194,9 +265,11 @@
   zramSwap = {
     enable = true;
     algorithm = "zstd";
-    memoryMax = "8G";
+    memoryMax = 8518631424; # 8GB
     swapDevices = 1;
   };
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # System configuration
   system = {
