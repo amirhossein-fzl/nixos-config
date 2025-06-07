@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-stable, ... }:
+{ config, lib, pkgs, nix2111Pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -40,6 +40,15 @@
     # Programming languages and runtimes
     go
     php
+    php84Packages.composer
+
+    (writeShellScriptBin "php74" ''
+      exec ${nix2111Pkgs.php74}/bin/php "$@"
+    '')
+    (writeShellScriptBin "composer74" ''
+      exec ${nix2111Pkgs.php74Packages.composer}/bin/composer "$@"
+    '')
+
     python313
     nodejs_24
     bun
@@ -55,7 +64,7 @@
     postgresql
     mariadb
     redis
-    redisinsight
+    #redisinsight
     dbeaver-bin
 
     # Server software
