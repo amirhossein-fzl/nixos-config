@@ -36,5 +36,9 @@
 
     # Firefox
     firefox.enable = true;
+
+    nekoray = {
+      tunMode.enable = true;
+    };
   };
 }
