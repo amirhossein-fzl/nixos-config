@@ -39,14 +39,14 @@
 
     # Programming languages and runtimes
     go
-    php
-    php84Packages.composer
 
+    # PHP
+    php84Packages.composer
+    (writeShellScriptBin "php84" ''
+      exec ${php}/bin/php "$@"
+    '')
     (writeShellScriptBin "php74" ''
       exec ${nix2111Pkgs.php74}/bin/php "$@"
-    '')
-    (writeShellScriptBin "composer74" ''
-      exec ${nix2111Pkgs.php74Packages.composer}/bin/composer "$@"
     '')
 
     python313

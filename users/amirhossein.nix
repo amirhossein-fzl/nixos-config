@@ -1,38 +1,33 @@
 { config, pkgs, ... }:
 
 {
-  # Home Manager needs a bit of information about you and the
-  # paths it should manage.
-  home.username = "amirhossein";
-  home.homeDirectory = "/home/amirhossein";
+  home = {
+    username = "amirhossein";
+    homeDirectory = "/home/amirhossein";
+    stateVersion = "25.05";
 
-  # This value determines the Home Manager release that your
-  # configuration is compatible with.
-  home.stateVersion = "25.05";
-
-  # User-specific packages
-  home.packages = with pkgs; [
-    # Add user-specific packages here
-    # These will be installed only for this user
-  ];
-
-  # User-specific program configurations
-  programs = {
-    # Configure programs specific to this user
-    # Example:
-    # git = {
-    #   enable = true;
-    #   userName = "Amirhossein Fazli";
-    #   userEmail = "amirhossein95b@gmail.com";
-    # };
+    packages = with pkgs; [
+      # Add packages here
+    ];
   };
 
-  # User-specific services
+  # Programs
+  programs = {
+    home-manager = {
+      enable = true;
+    };
+
+    zsh = {
+      enable = true;
+      shellAliases = {
+        php = "php74";
+      };
+    };
+  };
+
+  # Services
   services = {
     # Configure services specific to this user
   };
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }
 
