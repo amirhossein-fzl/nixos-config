@@ -96,5 +96,9 @@
     # KDE Connect
     kdePackages.kdeconnect-kde
 
+    # CLI tools
+    wl-clipboard
+    killall
+
   ];
 }
