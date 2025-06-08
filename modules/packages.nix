@@ -23,6 +23,7 @@
     # Browsers and communication
     firefox
     telegram-desktop
+    google-chrome
 
     # Media
     vlc
@@ -41,12 +42,17 @@
     go
 
     # PHP
-    php84Packages.composer
     (writeShellScriptBin "php84" ''
       exec ${php}/bin/php "$@"
     '')
     (writeShellScriptBin "php74" ''
       exec ${nix2111Pkgs.php74}/bin/php "$@"
+    '')
+    (writeShellScriptBin "composer84" ''
+      exec ${php84Packages.composer}/bin/composer "$@"
+    '')
+    (writeShellScriptBin "composer74" ''
+      exec ${nix2111Pkgs.php74Packages.composer}/bin/composer "$@"
     '')
 
     python313

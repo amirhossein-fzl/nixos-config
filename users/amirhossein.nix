@@ -27,6 +27,7 @@
       enable = true;
       shellAliases = {
         php = "php74";
+        composer = "composer74";
       };
     };
   };
