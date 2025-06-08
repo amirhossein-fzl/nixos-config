@@ -11,6 +11,12 @@
     ];
   };
 
+  fonts = {
+    fontconfig = {
+      enable = true;
+    };
+  };
+
   # Programs
   programs = {
     home-manager = {
