@@ -12,14 +12,18 @@
       enable = true;
       enableCompletion = true;
       syntaxHighlighting.enable = true;
-      autosuggestions.enable = true;
+      autosuggestions = {
+      enable = true;
+        strategy = ["history" "completion"];
+      };
 
       ohMyZsh = {
         enable = true;
-        plugins = [ "git" "sudo" "docker" "vi-mode" "laravel" "golang" ];
+        plugins = [ "git" "sudo" "docker" "laravel" "golang" ];
         theme = "af";
         custom = "$HOME/.oh-my-zsh";
       };
+
     };
 
     # Git configuration
