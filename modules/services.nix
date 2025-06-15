@@ -47,6 +47,11 @@
 
     # AI/ML
     ollama.enable = false;
+
+    # Network
+    pppd = {
+      enable = true;
+    };
   };
 }
 

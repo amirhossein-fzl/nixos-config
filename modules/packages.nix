@@ -92,6 +92,9 @@
 
     # Networking and VPN
     nekoray
+    pptp
+    ppp
+    networkmanager-pptp
 
     # KDE Connect
     kdePackages.kdeconnect-kde
