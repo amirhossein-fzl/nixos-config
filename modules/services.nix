@@ -57,6 +57,16 @@
     ntp.enable = true;
     timesyncd.enable = true;
 
+    # Redis service
+    redis = {
+      servers = {
+        "main" = {
+          enable = true;
+          port = 6379;
+        };
+      };
+    };
+
   };
 }
 
