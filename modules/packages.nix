@@ -46,7 +46,11 @@
       exec ${php}/bin/php "$@"
     '')
     (writeShellScriptBin "php74" ''
-      exec ${nix2111Pkgs.php74}/bin/php "$@"
+      exec ${(nix2111Pkgs.php74.buildEnv {
+        extensions = ({ enabled, all }: enabled ++ (with all; [
+          redis
+        ]));
+      })}/bin/php "$@"
     '')
     (writeShellScriptBin "composer84" ''
       exec ${php84Packages.composer}/bin/composer "$@"
