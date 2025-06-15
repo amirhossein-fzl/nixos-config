@@ -52,6 +52,11 @@
     pppd = {
       enable = true;
     };
+
+    # Sync time
+    ntp.enable = true;
+    timesyncd.enable = true;
+
   };
 }
 
