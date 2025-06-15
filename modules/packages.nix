@@ -24,6 +24,7 @@
     firefox
     telegram-desktop
     google-chrome
+    thunderbird
 
     # Media
     vlc
@@ -106,6 +107,7 @@
     # CLI tools
     wl-clipboard
     killall
+    qrencode
 
   ];
 }
