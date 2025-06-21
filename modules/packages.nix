@@ -96,10 +96,10 @@
     atuin
 
     # Networking and VPN
-    nekoray
     pptp
     ppp
     networkmanager-pptp
+    iptables
 
     # KDE Connect
     kdePackages.kdeconnect-kde
