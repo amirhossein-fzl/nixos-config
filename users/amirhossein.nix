@@ -25,6 +25,9 @@
 
     zsh = {
       enable = true;
+      initContent = ''
+        export GOPROXY=https://goproxy.io,direct;
+      '';
       shellAliases = {
         php = "php74";
         composer = "composer74";
