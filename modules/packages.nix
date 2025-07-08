@@ -109,5 +109,10 @@
     killall
     qrencode
 
+    # VM
+    virt-manager 
+    qemu 
+    libvirt 
+
   ];
 }

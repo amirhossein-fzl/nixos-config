@@ -8,7 +8,7 @@
       isNormalUser = true;
       home = "/home/amirhossein";
       description = "Amirhossein Fazli";
-      extraGroups = [ "wheel" "networkmanager" ];
+      extraGroups = [ "wheel" "networkmanager" "libvirt" "libvirt-qemu" "kvm" ];
     };
   };
 }

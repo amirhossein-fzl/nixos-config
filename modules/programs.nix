@@ -45,5 +45,7 @@
       enable = true;
       tunMode.enable = true;
     };
+
+    virt-manager.enable = true;
   };
 }
