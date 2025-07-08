@@ -33,6 +33,7 @@
     ffmpeg
     yt-dlp
     scdl
+    kdePackages.kdenlive
 
     # Development tools
     gcc
@@ -89,6 +90,7 @@
     # Utilities
     speedcrunch
     home-manager
+    kdePackages.kdeconnect-kde
 
     # AI/ML tools
     ollama
@@ -101,9 +103,6 @@
     ppp
     networkmanager-pptp
     iptables
-
-    # KDE Connect
-    kdePackages.kdeconnect-kde
 
     # CLI tools
     wl-clipboard
