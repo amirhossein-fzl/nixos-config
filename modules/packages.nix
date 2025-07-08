@@ -25,6 +25,7 @@
     telegram-desktop
     google-chrome
     thunderbird
+    brave
 
     # Media
     vlc
