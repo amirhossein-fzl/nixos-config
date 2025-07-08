@@ -23,7 +23,10 @@
   };
 
   # Enable flakes and nix-command
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    auto-optimise-store = true;
+  };
 
   # System state version
   system.stateVersion = "25.05";
