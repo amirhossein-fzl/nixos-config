@@ -40,6 +40,7 @@
     libgcc
     gnumake
     gtk4
+    jq
 
     # Programming languages and runtimes
     go
@@ -108,6 +109,7 @@
     wl-clipboard
     killall
     qrencode
+    tdl
 
     # VM
     virt-manager 
