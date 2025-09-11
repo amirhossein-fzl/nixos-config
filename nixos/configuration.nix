@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
 {
+  system.stateVersion = "25.05";
+
   imports = [
     ./hardware-configuration.nix
     ../modules/boot.nix
@@ -12,22 +14,8 @@
     ../modules/security.nix
     ../modules/users.nix
     ../modules/virtualisation.nix
+    ../modules/swap.nix
+    ../modules/nix.nix
+    ../modules/nixpkgs.nix
   ];
-
-  # Allow unfree packages
-  nixpkgs = {
-    config.allowUnfree = true;
-    overlays = [
-      (import ../overlays/networkmanager-pptp.nix)
-    ];
-  };
-
-  # Enable flakes and nix-command
-  nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
-    auto-optimise-store = true;
-  };
-
-  # System state version
-  system.stateVersion = "25.05";
 }

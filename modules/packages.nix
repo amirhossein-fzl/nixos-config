@@ -1,4 +1,4 @@
-{ config, lib, pkgs, nix2111Pkgs, ... }:
+{ config, lib, pkgs, nix2111Pkgs, inputs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -10,6 +10,8 @@
     tree
     tmux
     aria2
+    ntfs3g
+    zip
 
     # Text editors and IDEs
     vim
@@ -42,6 +44,9 @@
     gnumake
     gtk4
     jq
+    pkg-config
+    upx
+    just
 
     # Programming languages and runtimes
     go
@@ -69,6 +74,7 @@
     bun
     rustup
     zig
+    pnpm
 
     # Containerization
     docker
@@ -116,6 +122,8 @@
     virt-manager 
     qemu 
     libvirt 
+
+    inkscape
 
   ];
 }
