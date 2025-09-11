@@ -1,4 +1,3 @@
-# overlays/networkmanager-pptp.nix
 self: super: {
   networkmanager-pptp = super.stdenv.mkDerivation rec {
     pname = "networkmanager-pptp";
@@ -26,7 +25,6 @@ self: super: {
       glib
     ];
 
-    # This is the key fix - patch the source code directly like the original did
     postPatch = ''
       # Remove hardcoded paths first (like original nixpkgs did)
       sed -i -e 's%"\(/usr/sbin\|/usr/pkg/sbin\|/usr/local/sbin\)/[^"]*",%%g' ./src/nm-pptp-service.c

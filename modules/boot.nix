@@ -1,12 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   boot = {
-    # Use latest kernel
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [ "numlock=1" ];
 
-    # Bootloader configuration
     loader = {
       grub = {
         enable = true;

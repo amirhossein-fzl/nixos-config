@@ -1,0 +1,5 @@
+{
+  services.pppd = {
+    enable = true;
+  };
+}

@@ -1,7 +1,15 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   virtualisation = {
+    docker = {
+      enable = true;
+    };
+
+    podman = {
+      enable = true;
+    };
+
     libvirtd = {
       enable = true;
       qemu = {

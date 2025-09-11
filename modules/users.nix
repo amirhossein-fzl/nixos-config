@@ -1,9 +1,9 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   users = {
     defaultUserShell = pkgs.zsh;
-    
+
     users.amirhossein = {
       isNormalUser = true;
       home = "/home/amirhossein";

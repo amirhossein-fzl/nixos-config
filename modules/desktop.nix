@@ -1,7 +1,6 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  # X11 and Wayland
   services.xserver = {
     enable = true;
     xkb = {
@@ -10,10 +9,8 @@
     };
   };
 
-  # Desktop Environment
   services.desktopManager.plasma6.enable = true;
 
-  # Display Manager
   services.displayManager = {
     sddm = {
       enable = true;
@@ -23,16 +20,13 @@
     defaultSession = "plasma";
   };
 
-  # Input
   services.libinput.enable = true;
 
-  # Plasma package exclusions
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     elisa
     khelpcenter
   ];
 
-  # System services for display manager
   systemd.services.display-manager = {
     wants = [ "systemd-user-sessions.service" ];
     after = [
@@ -42,7 +36,6 @@
     ];
   };
 
-  # Disable getty on tty1 to prevent conflict with display manager
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 }
