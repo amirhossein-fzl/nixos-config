@@ -5,6 +5,10 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nix2111Pkgs.url = "github:NixOS/nixpkgs/nixos-21.11";
     nixpkgsStable.url = "github:NixOS/nixpkgs/nixos-25.05";
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -12,14 +16,13 @@
     };
   };
 
-  outputs = { self, nixpkgs, nix2111Pkgs, nixpkgsStable, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, nix2111Pkgs, nixpkgsStable, home-manager, zen-browser, ... }@inputs: {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           inherit inputs;
 
-          # Alternative package sets for when you need specific versions
           nixpkgsStable = import nixpkgsStable {
             system = "x86_64-linux";
             config.allowUnfree = true;
@@ -29,6 +32,20 @@
             system = "x86_64-linux";
             config.allowUnfree = true;
           };
+
+          zen-browser = import zen-browser {
+            system = "x86_64-linux";
+            config.allowUnfree = true;
+            default = {
+              override = {
+                  policies = {
+                    DisableAppUpdate = true;
+                    DisableTelemetry = true;
+                };
+              };
+            };
+          };
+
         };
         modules = [
           ./nixos/configuration.nix

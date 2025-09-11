@@ -26,6 +26,7 @@
     google-chrome
     thunderbird
     brave
+    inputs.zen-browser.packages."${system}".default
 
     # Media
     vlc
