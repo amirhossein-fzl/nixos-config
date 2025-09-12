@@ -2,9 +2,11 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
+
     syntaxHighlighting = {
       enable = true;
     };
+
     autosuggestion = {
       enable = true;
       strategy = ["history" "completion"];
@@ -15,6 +17,27 @@
       plugins = [ "git" "sudo" "docker" "laravel" "golang" ];
       theme = "af";
       custom = "$HOME/.oh-my-zsh";
+    };
+
+    history = {
+      ignorePatterns = [
+        "ls*"
+        "cd*"
+        "pwd"
+        "clear"
+        "exit"
+        "history"
+        "top"
+        "htop"
+        "jobs"
+        "fg"
+        "bg"
+        "which*"
+        "whereis"
+        "env"
+        "printenv"
+        "git status"
+      ];
     };
 
     initContent = ''
