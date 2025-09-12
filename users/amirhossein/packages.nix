@@ -44,8 +44,6 @@
     upx
     just
     postman
-    jetbrains-toolbox
-    scrcpy
     
     # Programming languages and runtimes
     go
@@ -55,9 +53,6 @@
     rustup
     zig
     pnpm
-    flutter
-    kotlin
-    kotlin-language-server
     
     # Your custom PHP scripts
     (writeShellScriptBin "php84" ''
