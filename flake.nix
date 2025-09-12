@@ -46,8 +46,6 @@
         inherit system specialArgs;
         modules = [
           ./nixos/configuration.nix
-          ./modules/programs.nix
-          ./modules/packages.nix
 
           home-manager.nixosModules.home-manager
           {
