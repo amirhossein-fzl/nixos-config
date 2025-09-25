@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nix2111Pkgs.url = "github:NixOS/nixpkgs/nixos-21.11";
     nixpkgsStable.url = "github:NixOS/nixpkgs/nixos-25.05";
 
     zen-browser = {
@@ -17,18 +16,13 @@
     };
   };
 
-  outputs = { self, nixpkgs, nix2111Pkgs, nixpkgsStable, home-manager, zen-browser, ... }@inputs: 
+  outputs = { self, nixpkgs, nixpkgsStable, home-manager, zen-browser, ... }@inputs: 
   let 
     system = "x86_64-linux";
     specialArgs = {
       inherit inputs;
 
       nixpkgsStable = import nixpkgsStable {
-        system = "x86_64-linux";
-        config.allowUnfree = true;
-      };
-
-      nix2111Pkgs = import nix2111Pkgs {
         system = "x86_64-linux";
         config.allowUnfree = true;
       };

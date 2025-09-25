@@ -41,22 +41,6 @@
         "type": "github"
       }
     },
-    "nix2111Pkgs": {
-      "locked": {
-        "lastModified": 1659446231,
-        "narHash": "sha256-hekabNdTdgR/iLsgce5TGWmfIDZ86qjPhxDg/8TlzhE=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "eabc38219184cc3e04a974fe31857d8e0eac098d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-21.11",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1757487488,
@@ -92,7 +76,6 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nix2111Pkgs": "nix2111Pkgs",
         "nixpkgs": "nixpkgs",
         "nixpkgsStable": "nixpkgsStable",
         "zen-browser": "zen-browser"

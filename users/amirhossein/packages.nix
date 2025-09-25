@@ -1,4 +1,4 @@
-{ pkgs, nix2111Pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -58,8 +58,8 @@
     (writeShellScriptBin "php84" ''
       exec ${php}/bin/php "$@"
     '')
-    (writeShellScriptBin "php74" ''
-      exec ${(nix2111Pkgs.php74.buildEnv {
+    (writeShellScriptBin "php83" ''
+      exec ${(php83.buildEnv {
         extensions = ({ enabled, all }: enabled ++ (with all; [
           redis
         ]));
@@ -69,7 +69,7 @@
       exec ${php84Packages.composer}/bin/composer "$@"
     '')
     (writeShellScriptBin "composer74" ''
-      exec ${nix2111Pkgs.php74Packages.composer}/bin/composer "$@"
+      exec ${php83Packages.composer}/bin/composer "$@"
     '')
     
     # Database clients (not servers)
