@@ -5,6 +5,7 @@
     ./home-manager.nix
     ./ssh.nix
     ./zen-browser.nix
+    ./zoxide.nix
     ./zsh.nix
   ];
 }
