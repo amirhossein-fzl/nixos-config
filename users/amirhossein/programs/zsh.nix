@@ -19,6 +19,10 @@
       custom = "$HOME/.oh-my-zsh";
     };
 
+    you-should-use = {
+      enable = true;
+    };
+
     history = {
       ignorePatterns = [
         "ls*"
