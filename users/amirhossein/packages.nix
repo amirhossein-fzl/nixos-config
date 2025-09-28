@@ -44,6 +44,8 @@
     upx
     just
     postman
+    fpm
+    rpm
     
     # Programming languages and runtimes
     go
