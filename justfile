@@ -3,3 +3,6 @@ build-system:
 
 build-home:
 	home-manager switch --flake /etc/nixos
+
+collect-garbage:
+    sudo nix-collect-garbage -d
