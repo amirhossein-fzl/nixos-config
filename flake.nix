@@ -40,6 +40,7 @@
         inherit system specialArgs;
         modules = [
           ./nixos/configuration.nix
+          ./modules/custom
 
           home-manager.nixosModules.home-manager
           {

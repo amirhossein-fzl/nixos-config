@@ -14,6 +14,11 @@
       tunMode.enable = true;
     };
 
+    throne = {
+      enable = true;
+      tunMode.enable = true;
+    };
+
     virt-manager.enable = true;
   };
 }
