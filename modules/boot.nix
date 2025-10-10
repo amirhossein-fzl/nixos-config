@@ -5,6 +5,12 @@
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [ "numlock=1" ];
 
+    kernel = {
+      sysctl = {
+        "kernel.sysrq" = 1;
+      };
+    };
+
     loader = {
       grub = {
         enable = true;
