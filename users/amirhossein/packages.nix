@@ -46,7 +46,7 @@
     postman
     fpm
     rpm
-    
+
     # Programming languages and runtimes
     go
     python313
@@ -55,7 +55,9 @@
     rustup
     zig
     pnpm
-    
+    cmake
+    ninja
+
     # Your custom PHP scripts
     (writeShellScriptBin "php84" ''
       exec ${php}/bin/php "$@"
