@@ -37,6 +37,8 @@
     scdl
     kdePackages.kdenlive
     inkscape
+    kdePackages.gwenview
+    gimp
     
     # Development tools
     git
