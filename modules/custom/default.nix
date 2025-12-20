@@ -1,5 +1,5 @@
 {
   imports = [
-    ./throne
+    # ./throne
   ];
 }
