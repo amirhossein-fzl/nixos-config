@@ -48,6 +48,7 @@
       export GOPROXY=https://goproxy.io,direct;
       export PATH="$HOME/.bin:$PATH"
       export PATH="$HOME/go/bin:$PATH"
+      export PATH="$HOME/.config/composer/vendor/bin:$PATH"
       export PNPM_HOME="$HOME/.pnpm"
       case ":$PATH:" in
         *":$PNPM_HOME:"*) ;;
